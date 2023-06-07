@@ -11,7 +11,7 @@ def get_model(use_api):
 
 class WhisperTranscriber:
     def __init__(self):
-        self.audio_model = whisper.load_model(os.path.join(os.getcwd(), 'tiny.en.pt'))
+        self.audio_model = whisper.load_model(os.path.join(os.path.dirname(__file__), 'tiny.en.pt'))
         print(f"[INFO] Whisper using GPU: " + str(torch.cuda.is_available()))
 
     def get_transcription(self, wav_file_path):

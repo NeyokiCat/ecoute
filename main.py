@@ -1,6 +1,6 @@
 import threading
 from AudioTranscriber import AudioTranscriber
-from GPTResponder import GPTResponder
+#from GPTResponder import GPTResponder
 import customtkinter as ctk
 import AudioRecorder 
 import queue
@@ -92,10 +92,10 @@ def main():
     transcribe.daemon = True
     transcribe.start()
 
-    responder = GPTResponder()
-    respond = threading.Thread(target=responder.respond_to_transcriber, args=(transcriber,))
-    respond.daemon = True
-    respond.start()
+    #responder = GPTResponder()
+    #respond = threading.Thread(target=responder.respond_to_transcriber, args=(transcriber,))
+    #respond.daemon = True
+    #respond.start()
 
     print("READY")
 
@@ -120,7 +120,7 @@ def main():
     update_interval_slider_label.configure(text=f"Update interval: {update_interval_slider.get()} seconds")
 
     update_transcript_UI(transcriber, transcript_textbox)
-    update_response_UI(responder, response_textbox, update_interval_slider_label, update_interval_slider, freeze_state)
+    #update_response_UI(responder, response_textbox, update_interval_slider_label, update_interval_slider, freeze_state)
  
     root.mainloop()
 
